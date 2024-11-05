@@ -358,18 +358,18 @@ body{
 }
 
 .betting-area{
-	width: 70px;
+	width: 200px;
 	margin: 30px auto 30px auto;
 }
 
 .betting-area #more{
-	float: left;
-	width: 30px;
+	float: right;
+	width: 100px;
 }
 
 .betting-area #less{
 	float: left;
-	width: 30px;
+	width: 100px;
 }
 
 .money{
