@@ -108,13 +108,14 @@ function deal(){
 		cards.splice(num, 1);
 		values.splice(num, 1);
 		
+		$("#more, #less, #allbet").removeClass("enabled").addClass("disabled");
 		$("#playerTotal").html(playerTotal);
-		$(".player-cards").width($(".player-cards").width()+84);
-		
-		
+		$(".player-cards").width($(".player-cards").width()+84);		
 		if(playerTotal>21){
 			$("#message").html('Bust!');
 			var reloadGame = "<div class='btn' id='deal'>Deal</div>";
+			$("#more, #less, #allbet").removeClass("disabled").addClass("enabled");
+			$("#hit, #stand").removeClass("enabled").addClass("disabled");
 			$(".buttons").html(reloadGame);
 			/// Pay up
 			$("#bet").html('0');	
@@ -151,6 +152,7 @@ function deal(){
 			if(dealerTotal>21){
 				$("#message").html('Dealer Bust!');	
 				var reloadGame = "<div class='btn' id='deal'>Deal</div>";
+				$("#more, #less, #allbet").removeClass("disabled").addClass("enabled");
 				$(".buttons").html(reloadGame);
 				clearInterval(keepDealing);
 				/// Pay up
@@ -195,6 +197,7 @@ function deal(){
 					$("#bet").html('0');
 				}
 				var reloadGame = "<div class='btn' id='deal'>Deal</div>";
+				$("#more, #less, #allbet").removeClass("disabled").addClass("enabled");
 				$(".buttons").html(reloadGame);
 				clearInterval(keepDealing);
 				return false;
@@ -220,6 +223,7 @@ function deal(){
 }
 
 $(document).ready(function(){
+	$("#hit, #stand").removeClass("enabled").addClass("disabled");
 
 	deal();
 	
@@ -268,6 +272,8 @@ $(document).ready(function(){
 		var money = parseInt($("#money").html());
 		if (money > 0) {
 			var currentBet = parseInt($("#bet").html()) || 0;
+			$("#more, #less, #allbet").removeClass("enabled").addClass("disabled");
+			$("#hit, #stand").removeClass("disabled").addClass("enabled");
 			$("#bet").html(currentBet + money);
 			$("#money").html(0);
 		}
